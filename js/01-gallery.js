@@ -1,9 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
-// Change code below this line
 
-// console.log(galleryItems);
-
-// console.log(basicLightbox)
 
 const gallery = document.querySelector(".gallery");
 
@@ -35,32 +31,16 @@ gallery.addEventListener("click", function (evt) {
   if (target.classList.contains("gallery__image")) {
     const currentItem = target.closest(".gallery__item");
     const { source } = target.dataset;
-    const item = galleryItems.find((item) => (item.original = source));
+    // const item = galleryItems.find((item) => (item.original = source));
     const instance = basicLightbox.create(`
 	<div class="modal">
   <img src="${item.original}" alt="${item.description}" width="800" heigh="600">
+  </div>
+
+  <div class="modal">
+  <img src="${source}" alt="${source}" width="800" heigh="600">
   </div>
 `);
     instance.show();
   }
 });
-
-// function hendlerClick(evt) {
-//   evt.preventDefault();
-
-//   if (evt.target === evt.currentTarget) {
-//     return
-//   }
-//   const currentItem = evt.target.closest('.gallery__item');
-//   console.log(currentItem)
-
-//   const newLocal = `
-// 	<div>
-//   <img src="${galleryItems.original}" alt="${galleryItems.description}">
-//   </div>
-// `;
-//   const instance = basicLightbox.create(newLocal);
-
-// instance.show()
-
-// }
