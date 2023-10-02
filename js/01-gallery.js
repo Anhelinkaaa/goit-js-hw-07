@@ -29,16 +29,12 @@ gallery.addEventListener("click", function (evt) {
   const target = evt.target;
 
   if (target.classList.contains("gallery__image")) {
-    const currentItem = target.closest(".gallery__item");
+    // const currentItem = target.closest(".gallery__item");
     const { source } = target.dataset;
-    // const item = galleryItems.find((item) => (item.original = source));
+    const item = galleryItems.find((item) => (item.original = source));
     const instance = basicLightbox.create(`
 	<div class="modal">
   <img src="${item.original}" alt="${item.description}" width="800" heigh="600">
-  </div>
-
-  <div class="modal">
-  <img src="${source}" alt="${source}" width="800" heigh="600">
   </div>
 `);
     instance.show();
